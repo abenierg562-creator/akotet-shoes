@@ -76,14 +76,14 @@ const ProductDetail = () => {
       <div className="px-4 mt-4 space-y-5">
         {/* Info */}
         <div>
-          <p className="text-xs text-primary font-semibold uppercase tracking-wider">{product.brand}</p>
+          <p className="text-xs text-primary font-semibold uppercase tracking-wider">Akotet Shoes</p>
           <h1 className="text-xl font-display font-bold text-foreground mt-1">
-            {product.brand} {product.name}
+            {product.name}
           </h1>
           <div className="flex items-center gap-3 mt-2">
-            <span className="text-2xl font-display font-bold text-foreground">${product.price}</span>
+            <span className="text-2xl font-display font-bold text-foreground">{product.price.toLocaleString()} ETB</span>
             {product.oldPrice && (
-              <span className="text-base text-muted-foreground line-through">${product.oldPrice}</span>
+              <span className="text-base text-muted-foreground line-through">{product.oldPrice.toLocaleString()} ETB</span>
             )}
             {product.oldPrice && (
               <span className="text-xs bg-sale/10 text-sale font-bold px-2 py-0.5 rounded-full">

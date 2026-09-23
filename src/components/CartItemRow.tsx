@@ -11,10 +11,10 @@ const CartItemRow = ({ item }: { item: CartItem }) => {
         <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
       </div>
       <div className="flex-1 min-w-0">
-        <h4 className="text-sm font-semibold text-foreground line-clamp-1">{product.brand} {product.name}</h4>
+        <h4 className="text-sm font-semibold text-foreground line-clamp-1">{product.name}</h4>
         <p className="text-xs text-muted-foreground mt-0.5">Size: {size}</p>
         <div className="flex items-center justify-between mt-2">
-          <span className="text-sm font-bold text-foreground">${product.price * quantity}</span>
+          <span className="text-sm font-bold text-foreground">{(product.price * quantity).toLocaleString()} ETB</span>
           <div className="flex items-center gap-2">
             <button
               onClick={() => updateQuantity(product.id, size, quantity - 1)}
