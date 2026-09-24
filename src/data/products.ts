@@ -28,14 +28,16 @@ export const brands: Brand[] = ['Akotet Shoes'];
 // Vite asset imports
 import img1 from '@/assets/photo_2026-09-19_03-22-43.jpg';
 import img2 from '@/assets/photo_2026-09-19_03-22-56.jpg';
-import img3 from '@/assets/photo_2026-09-19_01-03-05.jpg';   // replaced (old had Kokeb bg)
+import img3 from '@/assets/photo_2026-09-24_03-13-03.jpg';
 import img4 from '@/assets/photo_2026-09-19_03-23-15.jpg';
 import img5 from '@/assets/photo_2026-09-19_03-23-29.jpg';
 import img6 from '@/assets/photo_2026-09-19_03-23-35.jpg';
 import img7 from '@/assets/photo_2026-09-19_03-23-42.jpg';
 import img8 from '@/assets/photo_2026-09-19_03-24-01.jpg';
 import img9 from '@/assets/photo_2026-09-19_03-24-08.jpg';
-import img10 from '@/assets/photo_2026-09-19_02-53-57.jpg';  // replaced (old had Kokeb bg)
+import img10 from '@/assets/photo_2026-09-24_03-13-10.jpg';
+import img11 from '@/assets/photo_2026-09-24_03-13-16.jpg';
+import img12 from '@/assets/photo_2026-09-24_03-13-20.jpg';
 
 export const products: Product[] = [
   {
@@ -74,12 +76,12 @@ export const products: Product[] = [
   },
   {
     id: '3',
-    name: 'Dark Brown Suede Boot',
+    name: 'Dark Brown Suede Chukka',
     brand: 'Akotet Shoes',
     price: 3800,
     oldPrice: 4200,
     images: [img3],
-    description: 'Premium dark brown suede ankle boot. Durable and stylish for any season.',
+    description: 'Premium dark brown suede chukka boot with lace-up design. Lightweight and stylish for any season.',
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ['Dark Brown'],
     category: 'Boots',
@@ -195,21 +197,54 @@ export const products: Product[] = [
   },
   {
     id: '10',
-    name: 'Caramel Leather Loafer',
+    name: 'Black Leather Derby',
     brand: 'Akotet Shoes',
     price: 3700,
     oldPrice: 4000,
     images: [img10],
-    description: 'Premium caramel leather loafer with a slip-on design. Elegant and easy to wear.',
+    description: 'Sleek black leather derby with white sole. Clean and modern design perfect for everyday wear.',
     sizes: [38, 39, 40, 41, 42, 43, 44],
-    colors: ['Caramel'],
-    category: 'Loafers',
-    gender: 'Unisex',
-    material: 'Leather upper, leather sole',
+    colors: ['Black'],
+    category: 'Casual',
+    gender: 'Men',
+    material: 'Full-grain leather upper, rubber sole',
     inStock: true,
     isNewDrop: true,
     isBestSeller: true,
     isSpecialOffer: true,
+    isTrending: true,
+  },
+  {
+    id: '11',
+    name: 'Black Leather Oxford',
+    brand: 'Akotet Shoes',
+    price: 3500,
+    images: [img11],
+    description: 'Classic black leather oxford with contrasting sole. In stock now — a must-have for any wardrobe.',
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    colors: ['Black'],
+    category: 'Formal',
+    gender: 'Men',
+    material: 'Full-grain leather upper',
+    inStock: true,
+    isNewDrop: true,
+    isTrending: true,
+    isBestSeller: true,
+  },
+  {
+    id: '12',
+    name: 'Black Casual Derby',
+    brand: 'Akotet Shoes',
+    price: 3400,
+    images: [img12],
+    description: 'Versatile black casual derby with a comfortable fit. Great for both office and daily wear.',
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    colors: ['Black'],
+    category: 'Casual',
+    gender: 'Men',
+    material: 'Leather upper, rubber sole',
+    inStock: true,
+    isNewDrop: true,
     isTrending: true,
   },
 ];
