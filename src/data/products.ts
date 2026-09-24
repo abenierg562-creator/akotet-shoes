@@ -1,4 +1,4 @@
-export type Brand = 'Akotet Shoes';
+﻿export type Brand = 'Akotet Shoes';
 export type Category = 'Boots' | 'Loafers' | 'Casual' | 'Heels' | 'Formal';
 export type Gender = 'Men' | 'Women' | 'Unisex';
 
@@ -39,6 +39,8 @@ import img10 from '@/assets/photo_2026-09-24_03-13-10.jpg';
 import img11 from '@/assets/photo_2026-09-24_03-13-16.jpg';
 import img12 from '@/assets/photo_2026-09-24_03-13-20.jpg';
 
+const suffix = '\n100% ከ ንፁህ ቆዳ የተሰሩ ጫማዎች \n🔥 ኤክስፓርት ስታንዳርድ ኳሊቲ 🔥';
+
 export const products: Product[] = [
   {
     id: '1',
@@ -46,7 +48,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3200,
     images: [img1],
-    description: 'Classic tan suede derby with lace-up design. Lightweight and comfortable for everyday wear.',
+    description: `Classic tan suede derby with lace-up design. Lightweight and comfortable for everyday wear.${suffix}`,
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ['Tan'],
     category: 'Casual',
@@ -63,7 +65,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3500,
     images: [img2],
-    description: 'Stylish blue chukka boot with lace-up closure. Perfect for casual and semi-formal occasions.',
+    description: `Stylish blue chukka boot with lace-up closure. Perfect for casual and semi-formal occasions.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44],
     colors: ['Blue'],
     category: 'Boots',
@@ -81,7 +83,7 @@ export const products: Product[] = [
     price: 3800,
     oldPrice: 4200,
     images: [img3],
-    description: 'Premium dark brown suede chukka boot with lace-up design. Lightweight and stylish for any season.',
+    description: `Premium dark brown suede chukka boot with lace-up design. Lightweight and stylish for any season.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ['Dark Brown'],
     category: 'Boots',
@@ -99,7 +101,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3600,
     images: [img4],
-    description: 'Export-standard black leather boot with side zipper and brogue detailing. Elegant and durable.',
+    description: `Export-standard black leather boot with side zipper and brogue detailing. Elegant and durable.${suffix}`,
     sizes: [40, 41, 42, 43, 44, 45],
     colors: ['Black'],
     category: 'Formal',
@@ -116,7 +118,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3400,
     images: [img5],
-    description: 'Sleek black suede chelsea boot with elastic side panel. Easy slip-on with a modern look.',
+    description: `Sleek black suede chelsea boot with elastic side panel. Easy slip-on with a modern look.${suffix}`,
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ['Black'],
     category: 'Boots',
@@ -134,7 +136,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3200,
     images: [img6],
-    description: 'Light grey suede derby with chunky rubber sole. Casual and versatile for daily wear.',
+    description: `Light grey suede derby with chunky rubber sole. Casual and versatile for daily wear.${suffix}`,
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ['Grey'],
     category: 'Casual',
@@ -150,7 +152,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3500,
     images: [img7],
-    description: 'Classic brown derby oxford with fine stitching. A must-have for formal occasions.',
+    description: `Classic brown derby oxford with fine stitching. A must-have for formal occasions.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44],
     colors: ['Brown'],
     category: 'Formal',
@@ -167,7 +169,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3300,
     images: [img8],
-    description: 'Comfortable tan lace-up loafer with a relaxed fit. Great for casual and smart-casual outfits.',
+    description: `Comfortable tan lace-up loafer with a relaxed fit. Great for casual and smart-casual outfits.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ['Tan'],
     category: 'Loafers',
@@ -183,7 +185,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3400,
     images: [img9],
-    description: 'Timeless black derby shoe perfect for office and formal wear.',
+    description: `Timeless black derby shoe perfect for office and formal wear.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ['Black'],
     category: 'Formal',
@@ -202,7 +204,7 @@ export const products: Product[] = [
     price: 3700,
     oldPrice: 4000,
     images: [img10],
-    description: 'Sleek black leather derby with white sole. Clean and modern design perfect for everyday wear.',
+    description: `Sleek black leather derby with white sole. Clean and modern design perfect for everyday wear.${suffix}`,
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ['Black'],
     category: 'Casual',
@@ -220,7 +222,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3500,
     images: [img11],
-    description: 'Classic black leather oxford with contrasting sole. In stock now — a must-have for any wardrobe.',
+    description: `Classic black leather oxford with contrasting sole. In stock now — a must-have for any wardrobe.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ['Black'],
     category: 'Formal',
@@ -237,7 +239,7 @@ export const products: Product[] = [
     brand: 'Akotet Shoes',
     price: 3400,
     images: [img12],
-    description: 'Versatile black casual derby with a comfortable fit. Great for both office and daily wear.',
+    description: `Versatile black casual derby with a comfortable fit. Great for both office and daily wear.${suffix}`,
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ['Black'],
     category: 'Casual',
