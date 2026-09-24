@@ -1,23 +1,8 @@
-import { ArrowLeft, Moon, Sun } from 'lucide-react';
+import { ArrowLeft, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Switch } from '@/components/ui/switch';
-import { useEffect, useState } from 'react';
 
 const Settings = () => {
   const navigate = useNavigate();
-  const [isDark, setIsDark] = useState(() => {
-    return document.documentElement.classList.contains('dark');
-  });
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
 
   return (
     <div className="pb-20">
@@ -29,17 +14,14 @@ const Settings = () => {
       </div>
 
       <div className="mx-4 mt-6 bg-card rounded-2xl border border-border/50 overflow-hidden">
-        <div className="flex items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-accent flex items-center justify-center">
-              {isDark ? <Moon size={18} className="text-primary" /> : <Sun size={18} className="text-primary" />}
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">Dark Mode</p>
-              <p className="text-[11px] text-muted-foreground">{isDark ? 'Dark theme active' : 'Light theme active'}</p>
-            </div>
+        <div className="flex items-center gap-3 px-4 py-4">
+          <div className="w-9 h-9 rounded-xl bg-accent flex items-center justify-center">
+            <Moon size={18} className="text-primary" />
           </div>
-          <Switch checked={isDark} onCheckedChange={setIsDark} />
+          <div>
+            <p className="text-sm font-semibold text-foreground">Dark Mode</p>
+            <p className="text-[11px] text-muted-foreground">Dark theme active</p>
+          </div>
         </div>
       </div>
     </div>

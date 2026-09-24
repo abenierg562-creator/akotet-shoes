@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Heart, Minus, Plus, MessageCircle, Truck, Shield } from 'lucide-react';
 import { useProduct } from '@/hooks/useProducts';
@@ -16,6 +16,11 @@ const ProductDetail = () => {
   const { product, isLoading } = useProduct(id);
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [quantity, setQuantity] = useState(1);
+
+  // Always scroll to top when product page opens
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [id]);
 
   if (isLoading) {
     return (
@@ -54,25 +59,36 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="pb-24">
-      {/* Top bar */}
-      <div className="sticky top-0 z-40 flex items-center justify-between h-14 px-4 bg-background/95 backdrop-blur-sm">
-        <button onClick={() => navigate(-1)} className="p-2 rounded-full hover:bg-secondary">
-          <ArrowLeft size={20} />
+    <div className="min-h-screen pb-32">
+      {/* Hero image — full width, top of page */}
+      <div className="relative w-full aspect-square bg-secondary overflow-hidden">
+        <img
+          src={product.images[0]}
+          alt={product.name}
+          className="w-full h-full object-cover"
+        />
+        {/* Back button overlaid on image */}
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-4 left-4 p-2 rounded-full bg-background/70 backdrop-blur-sm"
+        >
+          <ArrowLeft size={20} className="text-foreground" />
         </button>
+        {/* Favorite button overlaid on image */}
         <button
           onClick={() => toggleFavorite(product.id)}
-          className="p-2 rounded-full hover:bg-secondary"
+          className="absolute top-4 right-4 p-2 rounded-full bg-background/70 backdrop-blur-sm"
         >
           <Heart size={20} className={fav ? 'fill-sale text-sale' : 'text-foreground'} />
         </button>
+        {product.oldPrice && (
+          <span className="absolute top-4 left-16 bg-sale text-sale-foreground text-[10px] font-bold px-2 py-1 rounded-full">
+            {Math.round((1 - product.price / product.oldPrice) * 100)}% OFF
+          </span>
+        )}
       </div>
 
-      {/* Image */}
-      <div className="aspect-square bg-secondary mx-4 rounded-2xl overflow-hidden">
-        <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
-      </div>
-
+      {/* Content scrolls below the image */}
       <div className="px-4 mt-4 space-y-5">
         {/* Info */}
         <div>
@@ -81,18 +97,19 @@ const ProductDetail = () => {
             {product.name}
           </h1>
           <div className="flex items-center gap-3 mt-2">
-            <span className="text-2xl font-display font-bold text-foreground">{product.price.toLocaleString()} ETB</span>
+            <span className="text-2xl font-display font-bold text-foreground">
+              {product.price.toLocaleString()} ETB
+            </span>
             {product.oldPrice && (
-              <span className="text-base text-muted-foreground line-through">{product.oldPrice.toLocaleString()} ETB</span>
-            )}
-            {product.oldPrice && (
-              <span className="text-xs bg-sale/10 text-sale font-bold px-2 py-0.5 rounded-full">
-                {Math.round((1 - product.price / product.oldPrice) * 100)}% OFF
+              <span className="text-base text-muted-foreground line-through">
+                {product.oldPrice.toLocaleString()} ETB
               </span>
             )}
           </div>
           {product.stockCount && product.stockCount <= 5 && (
-            <p className="text-xs text-sale font-medium mt-1">Only {product.stockCount} left in stock!</p>
+            <p className="text-xs text-sale font-medium mt-1">
+              Only {product.stockCount} left in stock!
+            </p>
           )}
         </div>
 
@@ -101,6 +118,26 @@ const ProductDetail = () => {
 
         {/* Size selector */}
         <SizeSelector sizes={product.sizes} selected={selectedSize} onSelect={setSelectedSize} />
+
+        {/* Quantity */}
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-display font-bold text-foreground">Quantity</h3>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center"
+            >
+              <Minus size={16} />
+            </button>
+            <span className="text-sm font-bold w-6 text-center">{quantity}</span>
+            <button
+              onClick={() => setQuantity(quantity + 1)}
+              className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center"
+            >
+              <Plus size={16} />
+            </button>
+          </div>
+        </div>
 
         {/* Colors */}
         {product.colors && product.colors.length > 0 && (
@@ -138,28 +175,10 @@ const ProductDetail = () => {
             )}
             <div className="bg-secondary rounded-xl p-3">
               <span className="text-muted-foreground">Availability</span>
-              <p className="font-medium text-success mt-0.5">{product.inStock ? 'In Stock' : 'Out of Stock'}</p>
+              <p className="font-medium text-success mt-0.5">
+                {product.inStock ? 'In Stock' : 'Out of Stock'}
+              </p>
             </div>
-          </div>
-        </div>
-
-        {/* Quantity */}
-        <div className="flex items-center justify-between">
-          <h3 className="text-sm font-display font-bold text-foreground">Quantity</h3>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center"
-            >
-              <Minus size={16} />
-            </button>
-            <span className="text-sm font-bold w-6 text-center">{quantity}</span>
-            <button
-              onClick={() => setQuantity(quantity + 1)}
-              className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center"
-            >
-              <Plus size={16} />
-            </button>
           </div>
         </div>
 

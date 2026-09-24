@@ -28,14 +28,14 @@ export const brands: Brand[] = ['Akotet Shoes'];
 // Vite asset imports
 import img1 from '@/assets/photo_2026-09-19_03-22-43.jpg';
 import img2 from '@/assets/photo_2026-09-19_03-22-56.jpg';
-import img3 from '@/assets/photo_2026-09-19_03-23-06.jpg';
+import img3 from '@/assets/photo_2026-09-19_01-03-05.jpg';   // replaced (old had Kokeb bg)
 import img4 from '@/assets/photo_2026-09-19_03-23-15.jpg';
 import img5 from '@/assets/photo_2026-09-19_03-23-29.jpg';
 import img6 from '@/assets/photo_2026-09-19_03-23-35.jpg';
 import img7 from '@/assets/photo_2026-09-19_03-23-42.jpg';
 import img8 from '@/assets/photo_2026-09-19_03-24-01.jpg';
 import img9 from '@/assets/photo_2026-09-19_03-24-08.jpg';
-import img10 from '@/assets/photo_2026-09-19_03-24-18.jpg';
+import img10 from '@/assets/photo_2026-09-19_02-53-57.jpg';  // replaced (old had Kokeb bg)
 
 export const products: Product[] = [
   {
