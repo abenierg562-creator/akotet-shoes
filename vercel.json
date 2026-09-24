@@ -1,3 +1,5 @@
 {
-  "name": "kokeb-shoes"
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
